@@ -1,6 +1,5 @@
 from selenium import webdriver
 import pytest
-import allure
 from pages.practice_form_page import PracticeFormPage
 from selenium.webdriver.chrome.options import Options
 

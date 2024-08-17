@@ -7,10 +7,10 @@ from selenium.webdriver.chrome.options import Options
 class TestPracticeForm:
     @pytest.fixture
     def driver(self):
-        options = Options()
-        options.add_argument('--headless')
-        #options = webdriver.ChromeOptions()
-        #options.add_experimental_option('excludeSwitches', ['enable-logging'])
+        #options = Options()
+        #options.add_argument('--headless')
+        options = webdriver.ChromeOptions()
+        options.add_experimental_option('excludeSwitches', ['enable-logging'])
         driver = webdriver.Chrome(options=options)
         driver.maximize_window()
         driver.get("https://demoqa.com/automation-practice-form")

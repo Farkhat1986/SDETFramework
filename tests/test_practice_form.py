@@ -2,11 +2,14 @@ from selenium import webdriver
 import pytest
 import allure
 from pages.practice_form_page import PracticeFormPage
+from selenium.webdriver.chrome.options import Options
 
 
 class TestPracticeForm:
     @pytest.fixture
     def driver(self):
+        options = Options()
+        options.add_argument('--headless')
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         driver = webdriver.Chrome(options=options)

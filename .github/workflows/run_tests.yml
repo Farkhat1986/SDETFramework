@@ -10,6 +10,7 @@ on:
         type: choice
         options:
           -first_test
+          -second_test
 
 jobs:
   test:
@@ -29,4 +30,7 @@ jobs:
       - name: first_test
         if: "github.event.inputs.deployment_target == 'first_test'"
         run: pytest tests/test_practice_form.py::TestPracticeForm::test_signup_form
+      - name: second_test
+        if: "github.event.inputs.deployment_target == 'second_test'"
+        run: pytest
 

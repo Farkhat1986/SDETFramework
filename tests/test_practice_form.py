@@ -7,7 +7,6 @@ from selenium.webdriver.chrome.options import Options
 class TestPracticeForm:
     @pytest.fixture
     def driver(self):
-        #options = Options()
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         options.add_argument('--headless=new')

@@ -9,7 +9,7 @@ on:
         default: first_test
         type: choice
         options:
-          -first_test
+          - first_test
 
 jobs:
   test:

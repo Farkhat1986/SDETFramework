@@ -11,11 +11,11 @@ on:
         options:
           - test_fill_form
 
+
 permissions:
   contents: read
   pages: write
   id-token: write
-
 
 jobs:
   test:
@@ -34,7 +34,7 @@ jobs:
         run: pip install -r requirements.txt
       - name: test_fill_form
         if: "github.event.inputs.deployment_target == 'test_fill_form'"
-        run: pytest tests/test_practice_form.py::TestPracticeForm::test_signup_form --alluredir=results
+        run: pytest tests/test_practice_form.py::test_signup_form --alluredir=results
       - name: Store results
         uses: actions/upload-artifact@v4
         with:

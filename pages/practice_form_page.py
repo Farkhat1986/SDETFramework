@@ -34,7 +34,7 @@ class PracticeFormPage:
         with allure.step('scroll window'):
             self.driver.execute_script("window.scrollBy(0, 300);")
         with allure.step('picture fill'):
-            self.driver.find_element(By.CSS_SELECTOR, "[type='file']").send_keys("https://github.com/Farkhat1986/SDETFramework/blob/master/picture/cat.jpg")
+            self.driver.find_element(By.CSS_SELECTOR, "[type='file']").send_keys("https://github.com/Farkhat1986/SDETFramework/blob/master/picture/cat.jpg?raw=true")
         with allure.step('fill address'):
             self.driver.find_element(By.CSS_SELECTOR, "#currentAddress").send_keys(address)
         with allure.step('fill state'):

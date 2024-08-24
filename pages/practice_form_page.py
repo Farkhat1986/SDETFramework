@@ -33,8 +33,8 @@ class PracticeFormPage:
             self.driver.find_element(By.CSS_SELECTOR, "[for='hobbies-checkbox-1']").click()
         with allure.step('scroll window'):
             self.driver.execute_script("window.scrollBy(0, 300);")
-        with allure.step('picture fill'):
-            self.driver.find_element(By.CSS_SELECTOR, "[type='file']").send_keys("https://github.com/Farkhat1986/SDETFramework/blob/master/picture/cat.jpg")
+        #with allure.step('picture fill'):
+            #self.driver.find_element(By.CSS_SELECTOR, "[type='file']").send_keys("https://github.com/Farkhat1986/SDETFramework/blob/master/picture/cat.jpg")
         with allure.step('fill address'):
             self.driver.find_element(By.CSS_SELECTOR, "#currentAddress").send_keys(address)
         with allure.step('fill state'):
@@ -49,7 +49,8 @@ class PracticeFormPage:
             self.driver.find_element(By.CSS_SELECTOR, "#submit").click()
 
     def check_form_submission(self):
-        WebDriverWait(self.driver, 10).until(
-            EC.text_to_be_present_in_element((By.ID, "example-modal-sizes-title-lg"), "Thanks for submitting the form"))
-        time.sleep(5)
+        with allure.step('check form'):
+            WebDriverWait(self.driver, 10).until(
+                EC.text_to_be_present_in_element((By.ID, "example-modal-sizes-title-lg"), "Thanks for submitting the form"))
+            time.sleep(5)
 

@@ -1,4 +1,4 @@
-name: Automated tests
+name: Automated tests site DEMOQA
 
 on:
   workflow_dispatch:
@@ -6,17 +6,16 @@ on:
       deployment_target:
         description: Choose target
         required: true
-        default: first_test
+        default: test_fill_form
         type: choice
         options:
-          - first_test
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+          - test_fill_form
 
 jobs:
+  download-history:
+    runs-on: ubuntu-latest
+    name: Download history
+
   test:
     runs-on: ubuntu-latest
 
@@ -31,8 +30,8 @@ jobs:
         run: sudo apt-get install google-chrome-stable
       - name: install dependencies
         run: pip install -r requirements.txt
-      - name: first_test
-        if: "github.event.inputs.deployment_target == 'first_test'"
+      - name: test_fill_form
+        if: "github.event.inputs.deployment_target == 'test_fill_form'"
         run: pytest tests/test_practice_form.py::TestPracticeForm::test_signup_form --alluredir=results
       - name: Store results
         uses: actions/upload-artifact@v4

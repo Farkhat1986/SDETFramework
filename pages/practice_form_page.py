@@ -6,11 +6,13 @@ from selenium.webdriver.support import expected_conditions as EC
 import random
 import allure
 
+
 class PracticeFormPage:
+
     def __init__(self, driver):
         self.driver = driver
 
-    def fill_form(self, first_name, last_name, email, mobile, dob, subjects, address, state, city):
+    def fill_form(self, first_name, last_name, email, mobile, dob, subjects, address):
         with allure.step('fill name'):
             self.driver.find_element(By.CSS_SELECTOR, "#firstName").send_keys(first_name)
         with allure.step('fill last name'):
@@ -31,13 +33,8 @@ class PracticeFormPage:
             self.driver.find_element(By.CSS_SELECTOR, "[for='hobbies-checkbox-1']").click()
         with allure.step('scroll window'):
             self.driver.execute_script("window.scrollBy(0, 300);")
-
-            # self.driver.find_element(By.CSS_SELECTOR, "#uploadPicture").send_keys("file.txt")
-            #current_dir = os.path.abspath(os.path.dirname(__file__))
-            #file_name = "file.txt"
-            #file_path = os.path.join(current_dir, file_name)
-            #self.driver.find_element(By.CSS_SELECTOR, "[type='file']").send_keys(file_path)
-
+        with allure.step('picture fill'):
+            self.driver.find_element(By.CSS_SELECTOR, "[type='file']").send_keys("C:/Users/user/PycharmProject/SDETFramework/picture/cat.jpg")
         with allure.step('fill address'):
             self.driver.find_element(By.CSS_SELECTOR, "#currentAddress").send_keys(address)
         with allure.step('fill state'):
@@ -55,3 +52,4 @@ class PracticeFormPage:
         WebDriverWait(self.driver, 10).until(
             EC.text_to_be_present_in_element((By.ID, "example-modal-sizes-title-lg"), "Thanks for submitting the form"))
         time.sleep(5)
+

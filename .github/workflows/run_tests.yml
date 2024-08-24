@@ -1,4 +1,4 @@
-name: Automated tests site DEMOQA
+name: Automated tests site
 
 on:
   workflow_dispatch:
